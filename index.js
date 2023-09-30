@@ -1,6 +1,6 @@
+require('dotenv').config()
 const { Client, GatewayIntentBits, Collection, Partials } = require('discord.js');
 const { generateDependencyReport } = require('@discordjs/voice');
-const { loadCommands } = require('./utils/loadCommands');
 const { YtDlpPlugin } = require("@distube/yt-dlp")
 const config = require('./settings.json');
 const { DisTube } = require('distube')
@@ -34,4 +34,4 @@ bot.commands = new Collection();
 require('./utils/loadEvents')(bot);
 require('./utils/loadCommands')(bot);
 
-bot.login(config.token);
+bot.login(process.env.DISCORD_BOT);
